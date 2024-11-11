@@ -192,6 +192,14 @@ Para la siguiente tabla considere:
 
 [![Operadores-Aritmeticos.jpg](https://i.postimg.cc/GhwFWLLS/Operadores-Aritmeticos.jpg)](https://postimg.cc/hhsQxq79)
 
+En el caso de la division, te preguntaras por que utilizamos `v = (float) 4/3;`, en C, al escribir 4/3 directamente, el compilador trata ambos números como enteros, asi esten siendo asignados a una variable de tipo float. Cuando haces la división 4/3 en enteros, el resultado también es un entero, y termina siendo 1 (¡no 1.33!) porque, en una división de enteros, C descarta la parte decimal.
+
+Para obtener el valor decimal correcto, el código usa una conversión explícita a float, escribiendo `(float) 4/3`.
+
+Entonces, `(float) 4` convierte el número `4` en un `float`, dándole un valor decimal, luego, al dividirlo entre `3`, C trata la división como si ambos fueran `float`, lo que da `1.33`.
+
+Entonces, `v = (float) 4/3;` asegura que el resultado sea decimal (1.33) en lugar de entero (1). Esta técnica es útil para evitar errores y asegurarse de que obtienes un resultado con decimales.
+
 Al realizar operaciones que contienen operadores aritméticos, se respeta la jerarquía de los operadores y se aplican de izquierda a derecha. Además, si una expresión contiene sub expresiones entre paréntesis, estas se evalúan primero.
 
 [![Operaciones.jpg](https://i.postimg.cc/ncWJFPW5/Operaciones.jpg)](https://postimg.cc/mt7qV8BN)
